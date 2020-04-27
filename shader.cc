@@ -858,6 +858,7 @@ void scheduler_unit::cycle()
                             if( sp_pipe_avail && (pI->op != SFU_OP) ) {
                                 // always prefer SP pipe for operations that can use both SP and SFU pipelines
                                 m_shader->issue_warp(*m_sp_out,pI,active_mask,warp_id);
+				printf("mem_inter_issue_at %llu\n", gpu_tot_sim_cycle + gpu_sim_cycle);
                                 issued++;
                                 issued_inst=true;
                                 warp_inst_issued = true;
